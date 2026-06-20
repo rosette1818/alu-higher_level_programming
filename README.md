@@ -1,3 +1,1 @@
-#!/bin/bash
-print( " Heloo")
-
+Python Hello World project

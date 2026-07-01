@@ -8,5 +8,3 @@ def multiply_by_2(a_dictionary):
         dict: a new dictionary with doubled values.
     """
     return {key: value * 2 for key, value in a_dictionary.items()}
-
-

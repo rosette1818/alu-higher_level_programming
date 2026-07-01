@@ -9,5 +9,3 @@ def common_elements(set_1, set_2):
         set: elements present in both sets.
     """
     return set_1 & set_2
-
-

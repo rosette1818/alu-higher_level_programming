@@ -8,5 +8,3 @@ def uniq_add(my_list=[]):
         int: sum of unique integers.
     """
     return sum(set(my_list))
-
-

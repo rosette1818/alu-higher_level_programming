@@ -8,5 +8,3 @@ def square_matrix_simple(matrix=[]):
         list: a new matrix, same size, with each value squared.
     """
     return [list(map(lambda x: x ** 2, row)) for row in matrix]
-
-

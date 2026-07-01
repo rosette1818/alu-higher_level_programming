@@ -10,3 +10,5 @@ def search_replace(my_list, search, replace):
         list: a new list with all occurrences replaced.
     """
     return [replace if item == search else item for item in my_list]
+
+

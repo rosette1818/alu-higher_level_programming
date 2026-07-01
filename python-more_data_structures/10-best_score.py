@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that returns the key with the biggest integer value."""
+
+
 def best_score(a_dictionary):
     """Return the key with the biggest integer value.
     Args:

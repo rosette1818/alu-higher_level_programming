@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that replaces all occurrences of an element by another."""
+
+
 def search_replace(my_list, search, replace):
     """Replace all occurrences of search by replace in a new list.
     Args:

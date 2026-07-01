@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that returns the weighted average of a list of (score, weight)."""
+
+
 def weight_average(my_list=[]):
     """Return the weighted average of all integer tuples (score, weight).
     Args:

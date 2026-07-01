@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that squares all integers of a matrix."""
+
+
 def square_matrix_simple(matrix=[]):
     """Compute the square value of all integers of a matrix.
     Args:

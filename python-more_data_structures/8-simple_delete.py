@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that deletes a key in a dictionary."""
+
+
 def simple_delete(a_dictionary, key=""):
     """Delete a key in a dictionary.
     Args:

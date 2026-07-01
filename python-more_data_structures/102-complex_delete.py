@@ -10,8 +10,9 @@ def complex_delete(a_dictionary, value):
     Returns:
         dict: the dictionary with matching keys removed.
     """
-    keys_to_delete = [key for key, val in a_dictionary.items()
-                       if val == value]
+   keys_to_delete = [
+        key for key, val in a_dictionary.items() if val == value
+    ]
     for key in keys_to_delete:
         del a_dictionary[key]
     return a_dictionary

@@ -1,17 +1,37 @@
 #!/usr/bin/python3
-"""Module that defines the Square class."""
-Rectangle = __import__('9-rectangle').Rectangle
+"""Module that defines the Student class."""
 
 
-class Square(Rectangle):
-    """Represent a square, based on the Rectangle class."""
+class Student:
+    """Represent a student with a first name, last name, and age."""
 
-    def __init__(self, size):
-        """Initialize a new Square.
+    def __init__(self, first_name, last_name, age):
+        """Initialize a new Student.
 
         Args:
-            size (int): The size of the square's sides.
+            first_name (str): The student's first name.
+            last_name (str): The student's last name.
+            age (int): The student's age.
         """
-        self.integer_validator("size", size)
-        self.__size = size
-        super().__init__(size, size)
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self, attrs=None):
+        """Return a dictionary representation of the Student instance.
+
+        Args:
+            attrs (list): Optional list of attribute names to include.
+                If not a list of strings, all attributes are included.
+
+        Returns:
+            dict: A filtered or full dictionary of the instance's
+                attributes.
+        """
+        result = {}
+        if type(attrs) == list:
+            for key in attrs:
+                if type(key) == str and hasattr(self, key):
+                    result[key] = getattr(self, key)
+            return result
+        return self.__dict__

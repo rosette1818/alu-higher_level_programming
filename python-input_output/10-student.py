@@ -28,7 +28,10 @@ class Student:
             dict: A filtered or full dictionary of the instance's
                 attributes.
         """
-        if isinstance(attrs, list) and all(isinstance(a, str)
-                                            for a in attrs):
-            return {k: v for k, v in self.__dict__.items() if k in attrs}
+        result = {}
+        if type(attrs) == list:
+            for key in attrs:
+                if type(key) == str and hasattr(self, key):
+                    result[key] = getattr(self, key)
+            return result
         return self.__dict__

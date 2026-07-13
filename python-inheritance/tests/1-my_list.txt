@@ -3,6 +3,7 @@ prints its elements sorted in ascending order without changing the
 original list order.
 
 >>> MyList = __import__('1-my_list').MyList
+
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
@@ -15,3 +16,24 @@ original list order.
 [1, 2, 3, 4, 5]
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+>>> empty_list = MyList()
+>>> print(empty_list)
+[]
+>>> empty_list.print_sorted()
+[]
+>>> print(empty_list)
+[]
+
+>>> neg_list = MyList()
+>>> neg_list.append(-3)
+>>> neg_list.append(5)
+>>> neg_list.append(-1)
+>>> neg_list.append(0)
+>>> neg_list.append(-10)
+>>> print(neg_list)
+[-3, 5, -1, 0, -10]
+>>> neg_list.print_sorted()
+[-10, -3, -1, 0, 5]
+>>> print(neg_list)
+[-3, 5, -1, 0, -10]

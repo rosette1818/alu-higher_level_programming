@@ -1,21 +1,40 @@
 #!/usr/bin/python3
-"""Module that defines the Square class."""
-Rectangle = __import__('9-rectangle').Rectangle
+"""Defines a Student class."""
 
 
-class Square(Rectangle):
-    """Represent a square, based on the Rectangle class."""
+class Student:
+    """Represent a student."""
 
-    def __init__(self, size):
-        """Initialize a new Square.
+    def __init__(self, first_name, last_name, age):
+        """Initialize a new Student.
 
         Args:
-            size (int): The size of the square's sides.
+            first_name (str): The first name of the student.
+            last_name (str): The last name of the student.
+            age (int): The age of the student.
         """
-        self.integer_validator("size", size)
-        self.__size = size
-        super().__init__(size, size)
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-    def __str__(self):
-        """Return the string representation of the square."""
-        return "[Square] {}/{}".format(self.__size, self.__size)
+    def to_json(self, attrs=None):
+        """Get a dictionary representation of the Student.
+
+        If attrs is a list of strings, only represent those attributes.
+
+        Args:
+            attrs (list): (Optional) The attributes to represent.
+        """
+        if (type(attrs) is list and
+                all(type(item) is str for item in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        return self.__dict__
+
+    def reload_from_json(self, json):
+        """Replace all attributes of the Student.
+
+        Args:
+            json (dict): The key/value pairs to replace attributes with.
+        """
+        for key, value in json.items():
+            setattr(self, key, value)

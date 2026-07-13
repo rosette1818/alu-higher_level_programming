@@ -7,10 +7,6 @@ value is a strictly positive integer.
 
 >>> bg.area()
 Traceback (most recent call last):
-Exception: area() is not implemented
-
->>> bg.area()
-Traceback (most recent call last):
     ...
 Exception: area() is not implemented
 
@@ -41,6 +37,41 @@ ValueError: age must be greater than 0
 Traceback (most recent call last):
     ...
 ValueError: distance must be greater than 0
+
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {"a": 1})
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", 3.14)
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
 
 >>> bg.integer_validator("size", True)
 Traceback (most recent call last):

@@ -1,6 +1,8 @@
--- lists all shows without the genre Comedy, using a single SELECT with joins
-SELECT title FROM tv_shows AS t
-LEFT JOIN tv_show_genres AS tsg ON t.id = tsg.show_id
-LEFT JOIN tv_genres AS tg ON tsg.genre_id = tg.id AND tg.name = "Comedy"
-WHERE tg.id IS NULL
+-- lists all shows without the genre Comedy, using two SELECT statements
+SELECT title FROM tv_shows
+WHERE id NOT IN (
+    SELECT show_id FROM tv_show_genres
+    JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+    WHERE tv_genres.name = "Comedy"
+)
 ORDER BY title;

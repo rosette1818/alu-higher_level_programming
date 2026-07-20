@@ -1,5 +1,5 @@
--- Creates the table force_name with a required name field
-CREATE TABLE IF NOT EXISTS force_name (
-    id INT,
-    name VARCHAR(256) NOT NULL
+-- creates the table id_not_null with id defaulting to 1 if not given
+CREATE TABLE IF NOT EXISTS id_not_null (
+    id INT DEFAULT 1,
+    name VARCHAR(256)
 );

@@ -1,3 +1,3 @@
 #!/bin/bash
-# Send a GET request with the required header to reveal the hidden message
-curl -s -H "X-HolbertonSchool-User-Id: 98" "0.0.0.0:5000/catch_me"
+# Send a spoofed request that tricks the server into believing user_id is 98
+curl -s -L -X PUT -d "user_id=98" -H "Origin: HolbertonSchool" "0.0.0.0:5000/catch_me"

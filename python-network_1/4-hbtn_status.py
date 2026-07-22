@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-"""Fetch https://intranet.hbtn.io/status using the requests package.
+"""Fetch https://alu-intranet.hbtn.io/status using the urllib package.
 
-This module fetches the status endpoint and displays the type and
-content of the response body.
+This module fetches the status endpoint and displays the raw body
+of the response along with its type and its utf-8 decoded content.
 """
-import requests
+import urllib.request
 
 
 if __name__ == "__main__":
-    response = requests.get("https://intranet.hbtn.io/status")
-    body = response.text
-    print("Body response:")
-    print("\t- type: {}".format(type(body)))
-    print("\t- content: {}".format(body))
+    url = "https://alu-intranet.hbtn.io/status"
+    with urllib.request.urlopen(url) as response:
+        body = response.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(body)))
+        print("\t- content: {}".format(body))
+        print("\t- utf8 content: {}".format(body.decode("utf-8")))

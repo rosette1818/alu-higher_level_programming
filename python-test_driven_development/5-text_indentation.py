@@ -1,28 +1,25 @@
 #!/usr/bin/python3
-"""Module that prints text with 2 new lines after ., ? and :
+"""Module that prints text with new lines after ., ? and :
 """
 
 
 def text_indentation(text):
-    """Prints a text, adding 2 new lines after each ., ? and :
+    """Print text, adding two new lines after each ., ? and :
 
     Args:
-        text: str, the text to print
+        text: string to print.
 
     Raises:
-        TypeError: if text is not a string
+        TypeError: if text is not a string.
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    marks = ".?:"
-    line = ""
+
+    built = ""
     for char in text:
-        if char == " " and line == "":
-            continue
-        line += char
-        if char in marks:
-            print(line.strip())
-            print("")
-            line = ""
-    if line.strip():
-        print(line.strip())
+        built += char
+        if char in ".?:":
+            built += "\n\n"
+
+    lines = [line.strip() for line in built.split("\n")]
+    print("\n".join(lines).strip("\n"))

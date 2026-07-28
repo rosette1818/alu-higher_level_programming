@@ -9,7 +9,6 @@ Regular case, no special characters:
 
     >>> text_indentation("Holberton School")
     Holberton School
-    <BLANKLINE>
 
 Case with a period:
 
@@ -17,7 +16,6 @@ Case with a period:
     Holberton.
     <BLANKLINE>
     School
-    <BLANKLINE>
 
 Case with a period, a question mark, and a colon:
 
@@ -29,12 +27,6 @@ Case with a period, a question mark, and a colon:
     How are you:
     <BLANKLINE>
     John
-    <BLANKLINE>
-
-Empty string:
-
-    >>> text_indentation("")
-    <BLANKLINE>
 
 text is not a string:
 

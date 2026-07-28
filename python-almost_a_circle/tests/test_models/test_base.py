@@ -34,6 +34,11 @@ class TestBase(unittest.TestCase):
         d = [{"id": 1}]
         self.assertEqual(Base.to_json_string(d), '[{"id": 1}]')
 
+    def test_to_json_string_returns_str(self):
+        """Test that to_json_string returns a string."""
+        d = [{"id": 12}]
+        self.assertIsInstance(Base.to_json_string(d), str)
+
     def test_from_json_string_none(self):
         """Test from_json_string with None."""
         self.assertEqual(Base.from_json_string(None), [])
@@ -44,8 +49,13 @@ class TestBase(unittest.TestCase):
 
     def test_from_json_string_valid(self):
         """Test from_json_string with a valid JSON string."""
-        s = '[{"id": 1}]'
-        self.assertEqual(Base.from_json_string(s), [{"id": 1}])
+        s = '[{"id": 89}]'
+        self.assertEqual(Base.from_json_string(s), [{"id": 89}])
+
+    def test_from_json_string_returns_list(self):
+        """Test that from_json_string returns a list."""
+        s = '[{"id": 89}]'
+        self.assertIsInstance(Base.from_json_string(s), list)
 
     def test_save_and_load_file(self):
         """Test save_to_file and load_from_file for Rectangle."""

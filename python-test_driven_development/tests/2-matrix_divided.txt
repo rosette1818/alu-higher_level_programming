@@ -1,32 +1,94 @@
-The ``matrix_divided`` function
-================================
+The ``2-matrix_divided`` module
+=================================
+
+Import the function:
 
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Regular case:
+
     >>> matrix = [[1, 2, 3], [4, 5, 6]]
     >>> matrix_divided(matrix, 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Original matrix is unchanged:
+
     >>> matrix
     [[1, 2, 3], [4, 5, 6]]
 
-    >>> matrix_divided([[1, 2], [3, 4]], 2)
-    [[0.5, 1.0], [1.5, 2.0]]
+Matrix containing floats:
 
-    >>> matrix_divided([1, 2], 2)
+    >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2)
+    [[0.75, 1.25], [1.75, 2.25]]
+
+div is a float:
+
+    >>> matrix_divided([[1, 2], [3, 4]], 2.5)
+    [[0.4, 0.8], [1.2, 1.6]]
+
+matrix is not a list of lists (list of ints):
+
+    >>> matrix_divided([1, 2, 3], 2)
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-    >>> matrix_divided([[1, 2], [3, "a"]], 2)
+matrix contains a non number:
+
+    >>> matrix_divided([[1, "2"], [3, 4]], 2)
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Rows of the matrix have different sizes:
 
     >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
     Traceback (most recent call last):
     TypeError: Each row of the matrix must have the same size
 
-    >>> matrix_divided([[1, 2], [3, 4]], "a")
+div is not a number:
+
+    >>> matrix_divided([[1, 2], [3, 4]], "School")
     Traceback (most recent call last):
     TypeError: div must be a number
+
+div is 0:
 
     >>> matrix_divided([[1, 2], [3, 4]], 0)
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
+
+matrix = list of lists of integers / div = float(inf), all values become 0.0:
+
+    >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
+
+matrix contains one float(inf) / div is an integer:
+
+    >>> matrix_divided([[1, float('inf')], [3, 4]], 2)
+    [[0.5, inf], [1.5, 2.0]]
+
+matrix contains one float(nan) / div is an integer:
+
+    >>> matrix_divided([[1, float('nan')], [3, 4]], 2)
+    [[0.5, nan], [1.5, 2.0]]
+
+matrix contains one float(inf) / div is float(inf):
+
+    >>> matrix_divided([[1, float('inf')], [3, 4]], float('inf'))
+    [[0.0, nan], [0.0, 0.0]]
+
+matrix contains one float(nan) / div is float(nan):
+
+    >>> matrix_divided([[1, float('nan')], [3, 4]], float('nan'))
+    [[nan, nan], [nan, nan]]
+
+Missing one argument:
+
+    >>> matrix_divided([[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Missing two arguments:
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

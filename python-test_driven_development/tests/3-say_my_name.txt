@@ -1,16 +1,45 @@
-The ``say_my_name`` function
-=============================
+The ``3-say_my_name`` module
+==============================
+
+Import the function:
 
     >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Regular case:
+
     >>> say_my_name("John", "Smith")
     My name is John Smith
+
+Another regular case:
+
     >>> say_my_name("Walter", "White")
     My name is Walter White
+
+Default last_name:
+
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+first_name is not a string:
 
     >>> say_my_name(12, "White")
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
-    >>> say_my_name("Bob", 12)
+last_name is not a string:
+
+    >>> say_my_name("John", 12)
     Traceback (most recent call last):
     TypeError: last_name must be a string
+
+Both are not strings:
+
+    >>> say_my_name(12, 98)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Missing two arguments (function called with none):
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'

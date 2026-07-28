@@ -1,19 +1,55 @@
-The ``text_indentation`` function
-==================================
+The ``5-text_indentation`` module
+===================================
+
+Import the function:
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
-    >>> text_indentation("Hello. How are you? I am fine: thanks.")
-    Hello.
+
+Regular case, no special characters:
+
+    >>> text_indentation("Holberton School")
+    Holberton School
     <BLANKLINE>
-    How are you?
+
+Case with a period:
+
+    >>> text_indentation("Holberton. School")
+    Holberton.
     <BLANKLINE>
-    I am fine:
+    School
     <BLANKLINE>
-    thanks.
+
+Case with a period, a question mark, and a colon:
+
+    >>> text_indentation("Holberton. School? How are you: John")
+    Holberton.
     <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John
+    <BLANKLINE>
+
+Empty string:
+
+    >>> text_indentation("")
+    <BLANKLINE>
+
+text is not a string:
 
     >>> text_indentation(12)
     Traceback (most recent call last):
     TypeError: text must be a string
 
-    >>> text_indentation("")
+text is None:
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Missing one argument:
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

@@ -1,1 +1,5 @@
-102-magic_calculation.pycat:1:1: E902 FileNotFoundError: [Errno 2] No such file or directory: '102-magic_calculation.pycat'
+#!usr/bin/python3
+import sys
+
+sys.stderr.write("and that piece of art is useful - Dora korpar, 2015-10-19\n")
+sys.exit(1)

@@ -11,17 +11,11 @@ if __name__ == "__main__":
         "mysql+mysqldb://{}:{}@localhost/{}".format(
             sys.argv[1], sys.argv[2], sys.argv[3]),
         pool_pre_ping=True)
-    
     Session = sessionmaker(bind=engine)
     session = Session()
-    
-    # Query all states ordered by id without using joinedload
     states = session.query(State).order_by(State.id).all()
-    
     for state in states:
         print("{}: {}".format(state.id, state.name))
-        # Access the relationship attribute directly
         for city in state.cities:
             print("\t{}: {}".format(city.id, city.name))
-            
     session.close()

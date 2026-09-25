@@ -1,15 +1,10 @@
 #!/usr/bin/node
 
-const x = parseInt(process.argv[2], 10);
+const languages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+let output = '';
 
-if (Number.isNaN(x)) {
-  console.log('Missing number of occurrences');
-} else {
-  let output = '';
-  for (let i = 0; i < x; i++) {
-    output += 'C is fun\n';
-  }
-  if (output) {
-    console.log(output.trimEnd());
-  }
+for (let i = 0; i < languages.length; i++) {
+  output += languages[i] + '\n';
 }
+
+console.log(output.trimEnd());
